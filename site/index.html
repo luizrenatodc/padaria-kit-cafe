@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crosta &amp; Prosa · Monte seu Kit Café da Manhã</title>
+<meta name="description" content="Padaria artesanal fictícia: monte seu kit café da manhã com pães de forno de lenha, doces, frios e bebidas, escreva um cartão e encomende pelo WhatsApp.">
+<meta name="theme-color" content="#f6e7c8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23c8553d'/%3E%3Cpath d='M12 38c0-12 9-18 20-18s20 6 20 18c0 6-9 10-20 10s-20-4-20-10z' fill='%23f1cf8a' stroke='%234a2a14' stroke-width='3'/%3E%3Cpath d='M22 28l6 12M32 26l2 14M42 28l-4 12' stroke='%234a2a14' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..900,0..100,0..1;1,9..144,400..900,0..100,0..1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<a class="pular" href="#montar">Pular para a montagem do kit</a>
+
+<header class="topo" id="topo">
+  <a class="logo" href="#topo" aria-label="Crosta e Prosa, início">
+    <svg viewBox="0 0 120 120" width="54" height="54" aria-hidden="true">
+      <defs><path id="circ" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+      <circle cx="60" cy="60" r="57" fill="#c8553d" stroke="#4a2a14" stroke-width="3"/>
+      <circle cx="60" cy="60" r="38" fill="none" stroke="#fbf1dc" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round"/>
+      <text font-family="Fraunces, Georgia, serif" font-weight="800" font-size="12.5" letter-spacing="2.2" fill="#fbf1dc"><textPath href="#circ" startOffset="2">PADARIA ARTESANAL · FORNO DE LENHA ·</textPath></text>
+      <g transform="translate(60 62)" stroke="#4a2a14" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M-17 8 C-19 -6 -8 -14 0 -14 C8 -14 19 -6 17 8 C16 14 8 17 0 17 C-8 17 -16 14 -17 8Z" fill="#f1cf8a"/>
+        <path d="M-9 -9 L-5 10 M0 -12 L1 13 M9 -9 L5 10" fill="none"/>
+      </g>
+    </svg>
+    <span class="logo-texto"><b>Crosta &amp; Prosa</b><small>desde 1987, forno aceso às 4h</small></span>
+  </a>
+  <nav class="menu" aria-label="Seções">
+    <a href="#como">Como funciona</a>
+    <a href="#montar">Montar meu kit</a>
+    <a href="#padaria">A padaria</a>
+  </nav>
+  <a class="mini-cesta" href="#resumo" id="mini-cesta" aria-label="Ver resumo do kit">
+    <svg viewBox="0 0 32 28" width="26" height="23" aria-hidden="true"><path d="M5 12 Q16 20 27 12 L25 25 Q16 28 7 25Z" fill="#c98a43" stroke="#4a2a14" stroke-width="2" stroke-linejoin="round"/><path d="M8 12 C8 2 24 2 24 12" fill="none" stroke="#4a2a14" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <span id="mini-qtd">Kit vazio</span>
+    <b id="mini-total">R$ 0,00</b>
+  </a>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="titulo">
+    <div class="hero-texto">
+      <p class="carimbo carimbo-red giro">Encomendas abertas · terça a domingo</p>
+      <h1 id="titulo">Seu café da manhã, <em>montado</em> do seu jeito.</h1>
+      <p class="lide">Escolha os pães que saem do forno de madrugada, os doces, os frios e o suco. Escreva um bilhete à mão. A gente embala e leva até a sua porta, ainda morninho.</p>
+      <div class="hero-acoes">
+        <a class="botao" href="#montar">Montar meu kit <span aria-hidden="true">→</span></a>
+        <a class="botao botao-linha" href="#como">Como funciona</a>
+      </div>
+      <p class="rabisco-nota" aria-hidden="true"><svg viewBox="0 0 80 50" width="64" height="40"><path d="M70 6 C40 2 14 12 10 40 M10 40 l-2 -10 M10 40 l9 -4" fill="none" stroke="#4a2a14" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>assado às 4h da manhã, entregue até as 12h</p>
+    </div>
+    <div class="hero-arte" id="hero-arte"></div>
+  </section>
+
+  <section class="como" id="como" aria-labelledby="como-t">
+    <h2 id="como-t" class="titulo-sec"><span class="manuscrito">passo a passo</span>Como funciona</h2>
+    <ol class="etiquetas">
+      <li><span class="num">1</span><h3>Escolha a cesta</h3><p>Tamanho para um, dois ou a família toda, em caixa kraft ou cesta de vime.</p></li>
+      <li><span class="num">2</span><h3>Recheie do seu jeito</h3><p>Pães, doces, frios e bebidas. Sem glúten, sem lactose e veganos marcados.</p></li>
+      <li><span class="num">3</span><h3>Escreva um bilhete</h3><p>Um cartão com a sua mensagem, no papel que você escolher.</p></li>
+      <li><span class="num">4</span><h3>Marque dia e hora</h3><p>Escolha a janela de entrega e mande o pedido pelo WhatsApp.</p></li>
+    </ol>
+  </section>
+
+  <section class="montar" id="montar" aria-labelledby="montar-t">
+    <h2 id="montar-t" class="titulo-sec"><span class="manuscrito">mãos à massa</span>Monte o seu kit</h2>
+    <div class="montar-grade">
+      <div class="passos">
+
+        <section class="passo" aria-labelledby="p1">
+          <header><span class="num">1</span><div><h3 id="p1">Escolha a cesta</h3><p>O tamanho define quantos lugares o kit tem. Cada pão grande ocupa dois.</p></div></header>
+          <fieldset class="opcoes" id="tamanhos"><legend>Tamanho</legend></fieldset>
+          <fieldset class="opcoes opcoes-2" id="embalagens"><legend>Embalagem</legend></fieldset>
+        </section>
+
+        <section class="passo" aria-labelledby="p2">
+          <header><span class="num">2</span><div><h3 id="p2">Recheie o kit</h3><p>Toque no mais para colocar na cesta. Desconto automático a partir de R$ 100,00 em itens.</p></div></header>
+          <div class="dieta" role="group" aria-labelledby="dieta-t">
+            <p id="dieta-t" class="dieta-t">Tem alguma restrição? Mostramos só o que serve.</p>
+            <div id="dieta-chips" class="chips"></div>
+            <p class="dieta-aviso">Nossa cozinha também trabalha com glúten, leite e ovos. Em alergias graves, fale conosco antes.</p>
+          </div>
+          <div id="categorias"></div>
+          <p class="vazio-filtro" id="vazio-filtro" hidden>Nenhum item nesta categoria atende todas as restrições marcadas.</p>
+        </section>
+
+        <section class="passo" aria-labelledby="p3">
+          <header><span class="num">3</span><div><h3 id="p3">Capriche no mimo</h3><p>Um bilhete escrito à mão e uns detalhes para deixar o café ainda mais especial.</p></div></header>
+          <div class="cartao-grade">
+            <div class="cartao-form">
+              <label class="interruptor"><input type="checkbox" id="cartao-ativo"><span class="trilho" aria-hidden="true"></span><span>Quero um cartão com mensagem <em>(grátis)</em></span></label>
+              <div id="cartao-campos" class="cartao-campos" hidden>
+                <fieldset class="estilos" id="estilos-cartao"><legend>Papel do cartão</legend></fieldset>
+                <div class="duas"><label>Para<input id="cartao-para" maxlength="40" placeholder="Quem vai receber" autocomplete="off"></label>
+                <label>De<input id="cartao-de" maxlength="40" placeholder="Seu nome" autocomplete="off"></label></div>
+                <label>Mensagem<textarea id="cartao-texto" rows="4" maxlength="220" placeholder="Bom dia! Esse café é por minha conta…"></textarea></label>
+                <p class="contador"><span id="cartao-cont">0</span>/220</p>
+                <p class="erro" id="erro-cartao" role="alert"></p>
+              </div>
+            </div>
+            <div class="cartao-previa" id="cartao-previa" aria-hidden="true"></div>
+          </div>
+          <h4 class="sub">Extras</h4>
+          <div class="extras" id="extras"></div>
+        </section>
+
+        <section class="passo" aria-labelledby="p4">
+          <header><span class="num">4</span><div><h3 id="p4">Quando e onde</h3><p id="regra-data">A padaria descansa às segundas. Pedidos feitos até as 18h entram para o dia seguinte.</p></div></header>
+          <fieldset class="opcoes opcoes-2" id="tipos-entrega"><legend>Como você quer receber</legend></fieldset>
+          <div class="duas">
+            <label>Data<input type="date" id="data" required><span class="erro" id="erro-data" role="alert"></span></label>
+            <fieldset class="janelas" id="janelas"><legend>Janela de entrega</legend></fieldset>
+          </div>
+          <div class="duas">
+            <label>Seu nome<input id="nome" autocomplete="name" placeholder="Como podemos te chamar?"><span class="erro" id="erro-nome" role="alert"></span></label>
+            <label>Telefone com DDD<input id="telefone" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"><span class="erro" id="erro-telefone" role="alert"></span></label>
+          </div>
+          <div id="endereco">
+            <div class="trio">
+              <label class="l-rua">Rua<input id="rua" autocomplete="address-line1" placeholder="Rua, avenida…"><span class="erro" id="erro-rua" role="alert"></span></label>
+              <label>Número<input id="numero" inputmode="numeric" autocomplete="off" placeholder="120"><span class="erro" id="erro-numero" role="alert"></span></label>
+            </div>
+            <div class="duas">
+              <label>Complemento<input id="complemento" autocomplete="address-line2" placeholder="Apto, bloco (opcional)"></label>
+              <label>Bairro<input id="bairro" autocomplete="address-level3" placeholder="Bairro"><span class="erro" id="erro-bairro" role="alert"></span></label>
+            </div>
+          </div>
+          <label>Observações<textarea id="obs" rows="2" maxlength="200" placeholder="Portaria, ponto de referência, alergias…"></textarea></label>
+        </section>
+
+        <section class="passo" id="resumo" aria-labelledby="p5">
+          <header><span class="num">5</span><div><h3 id="p5">Confira e encomende</h3><p>Revise o kit. Você pode enviar o pedido pelo WhatsApp ou guardá-lo neste aparelho para decidir depois.</p></div></header>
+          <div id="recibo-final"></div>
+          <div class="erros-form" id="erros-form" role="alert" hidden></div>
+          <div class="acoes-finais">
+            <button type="button" class="botao botao-zap" id="btn-whats">Enviar pelo WhatsApp</button>
+            <button type="button" class="botao botao-linha" id="btn-salvar">Salvar neste aparelho</button>
+            <button type="button" class="link" id="btn-limpar">Começar de novo</button>
+          </div>
+          <div id="salvos" class="salvos" hidden>
+            <h4 class="sub">Pedidos guardados neste aparelho</h4>
+            <ul id="lista-salvos"></ul>
+          </div>
+        </section>
+      </div>
+
+      <aside class="ticket-area" aria-label="Seu kit">
+        <div class="ticket" id="ticket"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="padaria" id="padaria" aria-labelledby="pad-t">
+    <div class="padaria-texto">
+      <h2 id="pad-t" class="titulo-sec"><span class="manuscrito">de madrugada</span>Uma padaria de vizinhança</h2>
+      <p>Acendemos o forno de lenha às quatro da manhã. A massa de fermentação natural descansa a noite inteira, o croissant leva três dias e a manteiga vem de um sítio a quarenta quilômetros daqui. Nada de aditivo, nada de pressa.</p>
+      <p>O kit café da manhã nasceu de um pedido de cliente: "monta uma cesta para a minha mãe, do jeito que ela gosta". Hoje é o que mais sai nos fins de semana.</p>
+      <ul class="selos">
+        <li class="carimbo carimbo-verde">Fermentação natural</li>
+        <li class="carimbo carimbo-red">Sem corante</li>
+        <li class="carimbo carimbo-marrom">Forno de lenha</li>
+      </ul>
+    </div>
+    <div class="padaria-quadro" aria-hidden="true">
+      <div class="polaroid"><svg viewBox="0 0 100 100" class="sp" style="--a:#d58a38;--b:#efc67f;--c:#9b5a1c"><use href="#i-baguete"/></svg><span class="manuscrito">baguete das 6h</span></div>
+      <div class="polaroid p2"><svg viewBox="0 0 100 100" class="sp" style="--a:#dc9a40;--b:#f3cf86;--c:#9c5a1b"><use href="#i-croissant"/></svg><span class="manuscrito">80 camadas</span></div>
+      <div class="polaroid p3"><svg viewBox="0 0 100 100" class="sp" style="--a:#b8692b;--b:#e8c280;--c:#7a3f17"><use href="#i-boule"/></svg><span class="manuscrito">broa de 24h</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <p><b>Crosta &amp; Prosa</b> é uma padaria fictícia, criada para demonstração. Preços, cardápio, endereços e o número de WhatsApp são inventados e nenhum pedido é entregue de verdade.</p>
+  <p class="manuscrito">feito com farinha, manteiga e paciência · <a href="https://www.luizrenato.dev">Luiz Renato Carvalho</a></p>
+</footer>
+
+<div class="fundo-barra" id="barra-mobile">
+  <a href="#resumo" class="botao"><span id="barra-qtd">Kit vazio</span> · <b id="barra-total">R$ 0,00</b> <span aria-hidden="true">↓</span></a>
+</div>
+
+<dialog id="dlg-whats" aria-labelledby="dlg-t">
+  <form method="dialog">
+    <h3 id="dlg-t">Prévia da mensagem</h3>
+    <p class="dica">É isto que será enviado no WhatsApp da padaria. Nesta demonstração o número é fictício, então você pode copiar o texto.</p>
+    <textarea id="dlg-texto" readonly rows="14"></textarea>
+    <div class="dlg-acoes">
+      <a class="botao botao-zap" id="dlg-abrir" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+      <button type="button" class="botao botao-linha" id="dlg-copiar">Copiar texto</button>
+      <button class="link">Fechar</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

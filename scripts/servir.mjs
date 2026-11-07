@@ -1,0 +1,23 @@
+// Servidor estático mínimo para ver o site localmente (módulos ES exigem http, não file://).
+// Uso: npm start   (porta 8080, ou PORT=3000 npm start)
+import { createServer } from "node:http";
+import { readFile } from "node:fs/promises";
+import { extname, join, normalize } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const raiz = fileURLToPath(new URL("../site", import.meta.url));
+const tipos = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png" };
+const porta = Number(process.env.PORT ?? 8080);
+
+createServer(async (req, res) => {
+  const url = new URL(req.url ?? "/", "http://x");
+  let rel = normalize(decodeURIComponent(url.pathname));
+  if (rel.endsWith("/") || rel.endsWith("\\")) rel += "index.html";
+  if (rel.includes("..")) { res.writeHead(400).end("caminho inválido"); return; }
+  try {
+    const dados = await readFile(join(raiz, rel));
+    res.writeHead(200, { "content-type": tipos[extname(rel)] ?? "application/octet-stream", "cache-control": "no-cache" }).end(dados);
+  } catch {
+    res.writeHead(404, { "content-type": "text/plain; charset=utf-8" }).end("não encontrado");
+  }
+}).listen(porta, () => console.log(`Crosta & Prosa em http://localhost:${porta}`));
