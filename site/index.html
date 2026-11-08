@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+<noscript><p class="sem-js">Esta página precisa de JavaScript para montar o kit. Ative o JavaScript no navegador ou chame a padaria pelo WhatsApp.</p></noscript>
 <a class="pular" href="#montar">Pular para a montagem do kit</a>
 
 <header class="topo" id="topo">
@@ -36,7 +37,7 @@
   </nav>
   <a class="mini-cesta" href="#resumo" id="mini-cesta" aria-label="Ver resumo do kit">
     <svg viewBox="0 0 32 28" width="26" height="23" aria-hidden="true"><path d="M5 12 Q16 20 27 12 L25 25 Q16 28 7 25Z" fill="#c98a43" stroke="#4a2a14" stroke-width="2" stroke-linejoin="round"/><path d="M8 12 C8 2 24 2 24 12" fill="none" stroke="#4a2a14" stroke-width="2.4" stroke-linecap="round"/></svg>
-    <span id="mini-qtd">Kit vazio</span>
+    <span id="mini-qtd" role="status">Kit vazio</span>
     <b id="mini-total">R$ 0,00</b>
   </a>
 </header>
@@ -97,8 +98,8 @@
                 <fieldset class="estilos" id="estilos-cartao"><legend>Papel do cartão</legend></fieldset>
                 <div class="duas"><label>Para<input id="cartao-para" maxlength="40" placeholder="Quem vai receber" autocomplete="off"></label>
                 <label>De<input id="cartao-de" maxlength="40" placeholder="Seu nome" autocomplete="off"></label></div>
-                <label>Mensagem<textarea id="cartao-texto" rows="4" maxlength="220" placeholder="Bom dia! Esse café é por minha conta…"></textarea></label>
-                <p class="contador"><span id="cartao-cont">0</span>/220</p>
+                <label>Mensagem<textarea id="cartao-texto" aria-describedby="cartao-cont-t erro-cartao" rows="4" maxlength="220" placeholder="Bom dia! Esse café é por minha conta…"></textarea></label>
+                <p class="contador" id="cartao-cont-t"><span id="cartao-cont">0</span>/220 letras</p>
                 <p class="erro" id="erro-cartao" role="alert"></p>
               </div>
             </div>
@@ -112,21 +113,21 @@
           <header><span class="num">4</span><div><h3 id="p4">Quando e onde</h3><p id="regra-data">A padaria descansa às segundas. Pedidos feitos até as 18h entram para o dia seguinte.</p></div></header>
           <fieldset class="opcoes opcoes-2" id="tipos-entrega"><legend>Como você quer receber</legend></fieldset>
           <div class="duas">
-            <label>Data<input type="date" id="data" required><span class="erro" id="erro-data" role="alert"></span></label>
+            <label>Data<input type="date" id="data" required aria-describedby="erro-data"><span class="erro" id="erro-data" role="alert"></span></label>
             <fieldset class="janelas" id="janelas"><legend>Janela de entrega</legend></fieldset>
           </div>
           <div class="duas">
-            <label>Seu nome<input id="nome" autocomplete="name" placeholder="Como podemos te chamar?"><span class="erro" id="erro-nome" role="alert"></span></label>
-            <label>Telefone com DDD<input id="telefone" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"><span class="erro" id="erro-telefone" role="alert"></span></label>
+            <label>Seu nome<input id="nome" autocomplete="name" aria-describedby="erro-nome" placeholder="Como podemos te chamar?"><span class="erro" id="erro-nome" role="alert"></span></label>
+            <label>Telefone com DDD<input id="telefone" inputmode="tel" aria-describedby="erro-telefone" autocomplete="tel" placeholder="(11) 90000-0000"><span class="erro" id="erro-telefone" role="alert"></span></label>
           </div>
           <div id="endereco">
             <div class="trio">
-              <label class="l-rua">Rua<input id="rua" autocomplete="address-line1" placeholder="Rua, avenida…"><span class="erro" id="erro-rua" role="alert"></span></label>
-              <label>Número<input id="numero" inputmode="numeric" autocomplete="off" placeholder="120"><span class="erro" id="erro-numero" role="alert"></span></label>
+              <label class="l-rua">Rua<input id="rua" aria-describedby="erro-rua" autocomplete="address-line1" placeholder="Rua, avenida…"><span class="erro" id="erro-rua" role="alert"></span></label>
+              <label>Número<input id="numero" aria-describedby="erro-numero" inputmode="numeric" autocomplete="off" placeholder="120"><span class="erro" id="erro-numero" role="alert"></span></label>
             </div>
             <div class="duas">
               <label>Complemento<input id="complemento" autocomplete="address-line2" placeholder="Apto, bloco (opcional)"></label>
-              <label>Bairro<input id="bairro" autocomplete="address-level3" placeholder="Bairro"><span class="erro" id="erro-bairro" role="alert"></span></label>
+              <label>Bairro<input id="bairro" aria-describedby="erro-bairro" autocomplete="address-level3" placeholder="Bairro"><span class="erro" id="erro-bairro" role="alert"></span></label>
             </div>
           </div>
           <label>Observações<textarea id="obs" rows="2" maxlength="200" placeholder="Portaria, ponto de referência, alergias…"></textarea></label>
@@ -186,7 +187,7 @@
   <form method="dialog">
     <h3 id="dlg-t">Prévia da mensagem</h3>
     <p class="dica">É isto que será enviado no WhatsApp da padaria. Nesta demonstração o número é fictício, então você pode copiar o texto.</p>
-    <textarea id="dlg-texto" readonly rows="14"></textarea>
+    <textarea id="dlg-texto" aria-label="Texto da mensagem do pedido" readonly rows="14"></textarea>
     <div class="dlg-acoes">
       <a class="botao botao-zap" id="dlg-abrir" target="_blank" rel="noopener">Abrir no WhatsApp</a>
       <button type="button" class="botao botao-linha" id="dlg-copiar">Copiar texto</button>

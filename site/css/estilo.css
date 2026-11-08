@@ -582,3 +582,4 @@ symbol .c { fill: var(--c, #a8621f); }
 
 .op-card { overflow: hidden; }
 html, body { overflow-x: clip; }
+.sem-js { margin: 0; padding: 14px 20px; background: var(--manteiga); color: var(--ink); font-weight: 700; text-align: center; border-bottom: 2.5px solid var(--ink); }
