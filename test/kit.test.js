@@ -178,6 +178,14 @@ describe("datas de entrega", () => {
     assert.match(validarData("2026-12-20", SABADO_MANHA), /30 dias/);
     assert.match(validarData("", SABADO_MANHA), /Escolha a data/);
   });
+  it("recusa dia que não existe no calendário em vez de empurrar para o mês seguinte", () => {
+    for (const d of ["2026-11-31", "2026-02-30", "2027-02-29", "2026-04-31", "2026-13-01", "2026-11-00"]) {
+      assert.equal(validarData(d, SABADO_MANHA), "Data inválida.", d);
+    }
+  });
+  it("aceita 29 de fevereiro em ano bissexto", () => {
+    assert.equal(validarData("2028-02-29", new Date(2028, 1, 20, 10)), null); // terça
+  });
   it("aceita terça-feira", () => {
     assert.equal(validarData("2026-11-10", SABADO_MANHA), null);
   });
