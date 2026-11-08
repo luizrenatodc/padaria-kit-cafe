@@ -153,7 +153,8 @@ export function ultimaDataDisponivel(agora) {
 export function validarData(dataIso, agora) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dataIso ?? "")) return "Escolha a data da entrega.";
   const d = daIso(dataIso);
-  if (Number.isNaN(d.getTime())) return "Data inválida.";
+  // "2026-11-31" vira 1º de dezembro no Date; só vale se a data voltar igual
+  if (Number.isNaN(d.getTime()) || iso(d) !== dataIso) return "Data inválida.";
   if (dataIso < primeiraDataDisponivel(agora) && d.getDay() !== NEGOCIO.diaFechado) {
     return agora.getHours() >= NEGOCIO.horaCorte
       ? `Pedidos feitos depois das ${NEGOCIO.horaCorte}h entram a partir de ${formatarData(primeiraDataDisponivel(agora))}.`
