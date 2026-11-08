@@ -11,8 +11,9 @@
   --ink: #4a2a14;
   --texto: #3b2414;
   --suave: #7d5a3d;
-  --vermelho: #c8553d;
-  --verde: #5f7a4a;
+  --vermelho: #b04128;
+  --verde: #4f6a3b;
+  --botao: #a55c22;
   --sombra: rgba(74, 42, 20, 0.16);
   --display: "Fraunces", Georgia, "Times New Roman", serif;
   --mao: "Caveat", "Segoe Script", "Bradley Hand", cursive;
@@ -83,7 +84,7 @@ a { color: var(--crosta-esc); }
   gap: 0.5em;
   font: 700 1rem var(--corpo);
   color: #fffaf0;
-  background: var(--crosta);
+  background: var(--botao);
   border: 2.5px solid var(--ink);
   border-radius: 999px;
   padding: 0.8em 1.5em;
@@ -92,12 +93,12 @@ a { color: var(--crosta-esc); }
   box-shadow: var(--sombra-botao);
   transition: transform 0.12s, box-shadow 0.12s, background 0.15s;
 }
-.botao:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); background: #c4762f; }
+.botao:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); background: #8f4a1c; }
 .botao:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
 .botao-linha { background: var(--papel); color: var(--ink); }
 .botao-linha:hover { background: var(--manteiga); }
-.botao-zap { background: #2f8f5b; }
-.botao-zap:hover { background: #267a4c; }
+.botao-zap { background: #23784a; }
+.botao-zap:hover { background: #1f7044; }
 .botao[disabled] { opacity: 0.5; cursor: not-allowed; }
 .link { background: none; border: 0; font: 600 0.95rem var(--corpo); color: var(--crosta-esc); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 8px; }
 
