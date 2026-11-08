@@ -23,7 +23,7 @@ createServer(async (req, res) => {
   if (rel.includes("..") || rel.includes("\0")) { res.writeHead(400, { "content-type": "text/plain; charset=utf-8" }).end("caminho inválido"); return; }
   try {
     const dados = await readFile(join(raiz, rel));
-    res.writeHead(200, { "content-type": tipos[extname(rel)] ?? "application/octet-stream", "cache-control": "no-cache" }).end(dados);
+    res.writeHead(200, { "content-type": tipos[extname(rel)] ?? "application/octet-stream", "cache-control": "no-cache", "x-content-type-options": "nosniff", "referrer-policy": "strict-origin-when-cross-origin" }).end(dados);
   } catch {
     res.writeHead(404, { "content-type": "text/plain; charset=utf-8" }).end("não encontrado");
   }
