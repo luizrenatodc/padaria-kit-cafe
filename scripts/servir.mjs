@@ -11,9 +11,16 @@ const porta = Number(process.env.PORT ?? 8080);
 
 createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", "http://x");
-  let rel = normalize(decodeURIComponent(url.pathname));
+  let rel;
+  try {
+    rel = normalize(decodeURIComponent(url.pathname));
+  } catch {
+    // escape inválido na URL (ex.: /%E0%A4%A): sem este catch a exceção derrubava o processo
+    res.writeHead(400, { "content-type": "text/plain; charset=utf-8" }).end("caminho inválido");
+    return;
+  }
   if (rel.endsWith("/") || rel.endsWith("\\")) rel += "index.html";
-  if (rel.includes("..")) { res.writeHead(400).end("caminho inválido"); return; }
+  if (rel.includes("..") || rel.includes("\0")) { res.writeHead(400, { "content-type": "text/plain; charset=utf-8" }).end("caminho inválido"); return; }
   try {
     const dados = await readFile(join(raiz, rel));
     res.writeHead(200, { "content-type": tipos[extname(rel)] ?? "application/octet-stream", "cache-control": "no-cache" }).end(dados);
