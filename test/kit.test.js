@@ -259,6 +259,19 @@ describe("rascunho salvo", () => {
     assert.deepEqual(r.extras, ["vela"]);
     assert.equal(r.embalagem, "caixa");
   });
+  it("tipo de entrega, janela e papel de cartão desconhecidos voltam ao padrão", () => {
+    const e = restaurar({ entrega: { tipo: "drone", janela: "25-26", nome: "Ana" }, cartao: { estilo: "neon", texto: "oi" } });
+    assert.equal(e.entrega.tipo, "entrega");
+    assert.equal(e.entrega.janela, "8-10");
+    assert.equal(e.cartao.estilo, "kraft");
+    assert.equal(e.entrega.nome, "Ana");
+    assert.equal(e.cartao.texto, "oi");
+  });
+  it("mantém retirada e valores válidos", () => {
+    const e = restaurar({ entrega: { tipo: "retirada" }, cartao: { estilo: "floral" } });
+    assert.equal(e.entrega.tipo, "retirada");
+    assert.equal(e.cartao.estilo, "floral");
+  });
   it("lixo vira estado inicial", () => {
     assert.deepEqual(restaurar(null), estadoInicial());
     assert.deepEqual(restaurar("texto"), estadoInicial());

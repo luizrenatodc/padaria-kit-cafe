@@ -1,7 +1,7 @@
 // Regras do kit: montagem, capacidade da cesta, preço, restrições, datas e mensagem do pedido.
 // Tudo aqui é função pura (sem DOM), por isso é testado em test/kit.test.js.
 import {
-  DESCONTOS, EMBALAGENS, EXTRAS, FRETE, ITENS, JANELAS, LIMITE_CARTAO, LIMITE_POR_ITEM, NEGOCIO, RESTRICOES, TAMANHOS,
+  DESCONTOS, EMBALAGENS, ESTILOS_CARTAO, EXTRAS, FRETE, ITENS, JANELAS, LIMITE_CARTAO, LIMITE_POR_ITEM, NEGOCIO, RESTRICOES, TAMANHOS,
 } from "./dados.js";
 
 const porId = (lista) => Object.fromEntries(lista.map((x) => [x.id, x]));
@@ -262,6 +262,10 @@ export function restaurar(bruto) {
   e.cartao = { ...base.cartao, ...pick(bruto.cartao, ["ativo", "estilo", "para", "de", "texto"]) };
   e.entrega = { ...base.entrega, ...pick(bruto.entrega, Object.keys(base.entrega)) };
   e.cartao.ativo = Boolean(e.cartao.ativo);
+  // valores fora do catálogo (rascunho antigo ou adulterado) voltam ao padrão, para a tela e a mensagem concordarem
+  if (!ESTILOS_CARTAO.some((x) => x.id === e.cartao.estilo)) e.cartao.estilo = base.cartao.estilo;
+  if (e.entrega.tipo !== "entrega" && e.entrega.tipo !== "retirada") e.entrega.tipo = base.entrega.tipo;
+  if (!JANELA[e.entrega.janela]) e.entrega.janela = base.entrega.janela;
   // se o rascunho antigo não cabe mais, aparar de novo
   return trocarTamanho(e, e.tamanho).estado;
 }
